@@ -126,7 +126,7 @@ public class Person{
 
 Person person = new Person(null, 18);
 // Query a sublist of persons who has 18 years old
-Collection<String> subList = collection(strings).filter(containsString("Adriano")).get();
+Collection<String> subList = collection(strings).filter(matches(person)).get();
 ```
 
 ### propertyMatches()
