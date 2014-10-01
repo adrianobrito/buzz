@@ -51,7 +51,7 @@ Collection<Integer> subList = collection(numbers).filter(
 ).get();	
 ```
 
-The result doesn't sound good, and the code above is very wordy. Buzz provides some matchers that could give us better results in terms of expressivity. The matchers is some premade conditionals which could attend some specific necessity. Let's see how good the code became using Buzz Matchers.  
+The result doesn't sound good, and the code above is very wordy. Buzz provides some matchers that could give us better results in terms of expressivity. The matchers are some premade conditionals which could attend some specific necessity. Let's see how good the code became using Buzz Matchers.  
 
 ```java
 // Filter the list and get a sublist with elements less than 2
