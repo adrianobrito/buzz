@@ -27,7 +27,7 @@ collection(numbers).each(new Function<Integer>(){
   public void block(Integer i){ System.out.println(i); }
 });
 ```
-It's not a very great difference from ```for```, ```while``` and ```for each``` Java iteration operations, but if you can build some reusable functions to iterate the collection, we could see some better results than the example above. 
+It's not a huge difference from ```for```, ```while``` and ```for each``` Java iteration operations, but if you can build some reusable functions to iterate the collection, we could see some better results than the example above. 
 ```java
 Function<Object> print = new Function<Integer>(){
   public void block(Integer i){ System.out.println(i); }
