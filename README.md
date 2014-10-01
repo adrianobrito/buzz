@@ -130,7 +130,7 @@ Collection<String> subList = collection(strings).filter(matches(person)).get();
 ```
 
 ### propertyMatches()
-This is other powerful matchers, which allow you to do a conditional on the properties of an object.
+This is another powerful matcher which allow you to do a conditional on the properties of an object.
 
 We will begin rewriting the same example listed before with the ```matches``` Matcher.
 ```java
