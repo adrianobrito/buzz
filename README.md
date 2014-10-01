@@ -55,7 +55,7 @@ The result doesn't sound good, and the code above is very wordy. Buzz provides s
 
 ```java
 // Filter the list and get a sublist with elements less than 2
-Collection<Integer> subList = collection(numbers).filter(lessThan(50)).get();	
+Collection<Integer> subList = collection(numbers).filter(lessThan(2)).get();	
 ```
 
 The Matchers are added to the code through the import:
