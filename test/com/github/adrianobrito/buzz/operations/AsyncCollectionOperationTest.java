@@ -36,7 +36,8 @@ public class AsyncCollectionOperationTest {
 	}
 	
 	@Test
-	public void deveConseguirFiltrar(){
+	public void deveConseguirFiltrar() throws InterruptedException{
+		Thread.sleep(300);
 		List<Integer> subList = (List<Integer>)asyncCollection(numbers).filter(greaterThan(50)).get();
 	
 		for(Integer i:subList)

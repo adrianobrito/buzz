@@ -5,8 +5,8 @@ import java.util.Collection;
 public interface CollectionOperations<T> {
 	
 	Collection<T> get();
-	CollectionOperations<T> each(Function<T> f);
-	CollectionOperations<T> filter(Conditional<?> conditional);
+	CollectionOperations<T> each(Function<? super T> f);
+	CollectionOperations<T> filter(Conditional<? super T> conditional);
 	
 	public interface Function<T>{
 		void block(T t);

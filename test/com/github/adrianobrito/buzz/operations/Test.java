@@ -22,9 +22,10 @@ public class Test {
 		
 		Long asyncTime = test(new Runnable() {
 			
+			@SuppressWarnings("unchecked")
 			@Override
 			public void run() {
-				asyncCollection(numbers).each(new Function<Integer>(){ public void block(Integer i){ stop(10); }});				
+				asyncCollection(numbers).each(new Function(){ public void block(Object i){ stop(10); }});				
 			}
 			
 		});

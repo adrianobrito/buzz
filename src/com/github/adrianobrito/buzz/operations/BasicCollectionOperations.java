@@ -17,7 +17,7 @@ public class BasicCollectionOperations<T> implements CollectionOperations<T>{
 	}
 
 	@Override
-	public CollectionOperations<T> each(Function<T> f) {
+	public CollectionOperations<T> each(Function<? super T> f) {
 		for(T t:collection){
 			f.block(t);
 		}
@@ -25,9 +25,8 @@ public class BasicCollectionOperations<T> implements CollectionOperations<T>{
 		return this;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public CollectionOperations<T> filter(Conditional conditional) {
+	public CollectionOperations<T> filter(Conditional<? super T> conditional) {
 		
 		Collection<T> collection = new ArrayList<T>();
 		for(T t:this.collection){

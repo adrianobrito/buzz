@@ -22,7 +22,7 @@ private Collection<T> collection;
 	}
 
 	@Override
-	public CollectionOperations<T> each(final Function<T> f) {
+	public CollectionOperations<T> each(final Function<? super T> f) {
 		for(final T t:collection){
 			processingPool.execute(new Runnable() {
 				
@@ -37,9 +37,8 @@ private Collection<T> collection;
 		return this;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public CollectionOperations<T> filter(final Conditional conditional) {
+	public CollectionOperations<T> filter(final Conditional<? super T> conditional) {
 		
 		final Collection<T> collection = new ArrayList<T>();
 		final AtomicInteger counter = new AtomicInteger();

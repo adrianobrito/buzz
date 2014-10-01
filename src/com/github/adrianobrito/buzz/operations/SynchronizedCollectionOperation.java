@@ -17,9 +17,9 @@ public class SynchronizedCollectionOperation<T> implements CollectionOperations<
 	}
 
 	@Override
-	public CollectionOperations<T> each(Function<T> f) {
+	public CollectionOperations<T> each(Function<? super T> f) {
 		for(T t:collection){
-			synchronized (this) {
+			synchronized (t) {
 				f.block(t);
 			}
 		}
@@ -27,13 +27,12 @@ public class SynchronizedCollectionOperation<T> implements CollectionOperations<
 		return this;
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public CollectionOperations<T> filter(Conditional conditional) {
+	public CollectionOperations<T> filter(Conditional<? super T> conditional) {
 		
 		Collection<T> collection = new ArrayList<T>();
 		for(T t:this.collection){
-			synchronized (this) {
+			synchronized (t) {
 				if(conditional.block(t))
 					collection.add(t);
 			}

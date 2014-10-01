@@ -8,6 +8,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
@@ -37,9 +40,16 @@ public class MatchersTest {
 	private final List<Integer> numbers = new ArrayList<Integer>();
 	private List<String> strings;
 	private List<Data> dataList;
+	private List<Date> datas;
 	
 	@Before
-	public void before(){
+	public void beforeTest(){
+		Calendar calendar = Calendar.getInstance();
+		Date today = calendar.getTime();
+		calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR) - 3);
+		Date threeYearsBefore = calendar.getTime();
+		datas = Arrays.asList(today, threeYearsBefore);
+				
 		dataList = Arrays.asList(new Data(1, (byte)5), new Data(2, (byte)5), new Data(3, (byte)8));
 		strings = Arrays.asList("Adriano", "Clara", "Tito", "Isauro");
 		for(int i=0; i < MAX_LENGTH; i++)
@@ -105,7 +115,7 @@ public class MatchersTest {
 	@Test
 	public void shouldMatchObject(){
 		Data data = new Data(2, null);
-		List<Data> subList = (List<Data>)syncCollection(dataList).filter(matches(data)).get();
+		List<Data> subList = (List<Data>)collection(dataList).filter(matches(data)).get();
 		
 		for(Data i:subList)
 			assertThat(i.getId(), is(2));
@@ -113,7 +123,7 @@ public class MatchersTest {
 	
 	@Test
 	public void shouldPropertyMatchObject(){
-		List<Data> subList = (List<Data>)syncCollection(dataList).filter(propertyMatches("id", 2)).get();
+		List<Data> subList = (List<Data>)collection(dataList).filter(propertyMatches("id", 2)).get();
 		
 		for(Data i:subList)
 			assertThat(i.getId(), is(2));
@@ -121,11 +131,34 @@ public class MatchersTest {
 	
 	@Test
 	public void shouldPropertyMatchObjectWithConditional(){
-		List<Data> subList = (List<Data>)syncCollection(dataList).filter(propertyMatches("id", greaterThan(2))).get();
+		List<Data> subList = (List<Data>)collection(dataList).filter(propertyMatches("id", greaterThan(2))).get();
 		
 		for(Data i:subList)
 			assertThat(i.getId() > 2, is(true));
 	}
 	
+	@Test
+	public void shouldBeBeforeDate(){
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR) - 1);
+		Date date = calendar.getTime();
+		
+		List<Date> subList = (List<Date>)collection(datas).filter(before(date)).get();
+		
+		for(Date i:subList)
+			assertThat(i.before(date), is(true));
+	}
+	
+	@Test
+	public void shouldBeAfterDate(){
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR) - 1);
+		Date date = calendar.getTime();
+		
+		List<Date> subList = (List<Date>)collection(datas).filter(after(date)).get();
+		
+		for(Date i:subList)
+			assertThat(i.after(date), is(true));
+	}
 	
 }

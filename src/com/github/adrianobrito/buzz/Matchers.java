@@ -2,6 +2,7 @@ package com.github.adrianobrito.buzz;
 
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
+import java.util.Date;
 
 import com.github.adrianobrito.buzz.operations.CollectionOperations.Conditional;
 
@@ -68,6 +69,24 @@ public class Matchers {
 			@Override
 			public boolean block(String x) {
 				return x.contains(t);
+			}			
+		};
+	}
+	
+	public static <T> Conditional<? super Date> before(final Date t){
+		return new Conditional<Date>(){			
+			@Override
+			public boolean block(Date x) {
+				return x.before(t);
+			}			
+		};
+	}
+	
+	public static <T> Conditional<? super Date> after(final Date t){
+		return new Conditional<Date>(){			
+			@Override
+			public boolean block(Date x) {
+				return x.after(t);
 			}			
 		};
 	}
