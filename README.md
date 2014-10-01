@@ -46,8 +46,78 @@ That is where live the power of ```each``` operations: you could use functions o
 
 ```java
 // Filter the list and get a sublist with elements less than 2
-collection(numbers).filter(
+Collection<Integer> subList = collection(numbers).filter(
   new Conditional<Integer>(){public boolean block(Integer t) { return t < 2; }}
 ).get();	
 ```
 
+The result doesn't sound good, and the code above is very wordy. Buzz provides some matchers that could give us better results in terms of expressivity. The matchers is some premade conditionals which could attend some specific necessity. Let's see how good the code became using Buzz Matchers.  
+
+```java
+// Filter the list and get a sublist with elements less than 2
+Collection<Integer> subList = collection(numbers).filter(lessThan(50)).get();	
+```
+
+The Matchers are added to the code through the import:
+
+```java
+import static com.github.adrianobrito.buzz.Matchers.*;
+```
+
+##Matchers
+
+Now, we will explain each Matcher provided by Buzz DSL with examples.
+
+### greaterThan()
+```java
+Collection<Integer> subList = collection(numbers).filter(greaterThan(2)).get();
+```
+### lessThan()
+```java
+Collection<Integer> subList = collection(numbers).filter(lessThan(2)).get();
+```
+### greaterEqualsThan()
+```java
+Collection<Integer> subList = collection(numbers).filter(greaterEqualsThan(2)).get();
+```
+### lessEqualsThan()
+```java
+Collection<Integer> subList = collection(numbers).filter(lessEqualsThan(2)).get();
+```
+### equalsTo()
+```java
+Collection<Integer> subList = collection(numbers).filter(equalsTo(2)).get();
+```
+### notEqualsTo()
+```java
+Collection<Integer> subList = collection(numbers).filter(notEqualsTo(2)).get();
+```
+### containsString
+```java
+Collection<String> strings = Arrays.asList("Adriano", "Clara", "Tito", "Isauro");
+Collection<String> subList = collection(strings).filter(containsString("Adriano")).get();
+```
+### matches
+This matcher is very powerful and can fit a large scope of cases of filtering operations. You use one object to do a query based on its not null properties. See the example below.
+```java
+public class Person{
+	private String name;
+	private Integer age;
+	
+	public Person(String name, Integer age) {
+		this.name = name;
+		this.age = age;
+	}
+	...
+}
+
+Person person = new Person(null, 18);
+// Query a sublist of persons who has 18 years old
+Collection<String> subList = collection(strings).filter(containsString("Adriano")).get();
+```
+
+### propertyMatches
+This is other powerful matchers, which allow you to do a conditional on the properties of an object.
+
+You can use it by compares the equality:
+```java
