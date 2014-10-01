@@ -141,5 +141,6 @@ You can use another conditional to filter the listed elements by appying a condi
 Collection<String> subList = collection(dataList).filter(propertyMatches("idade", greaterThan(18))).get();
 ```
 
+##Download
 
-
+You can download the Beta Release [here](https://github.com/adrianobrito/buzz/buzz.jar).
