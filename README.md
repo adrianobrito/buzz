@@ -27,3 +27,15 @@ collection(numbers).each(new Function<Integer>(){
   public void block(Integer i){ System.out.println(i); }
 });
 ```
+It's not a very great difference from ```for```, ```while``` and ```for each``` Java iteration operations, but if you can build some reusable functions to iterate the collection, we could see some better results than the example above. 
+```java
+Function<Object> print = new Function<Integer>(){
+  public void block(Integer i){ System.out.println(i); }
+});
+
+// You could use print function to others collections
+collection(numbers).each(print);
+collection(numbers2).each(print);
+```
+
+That is where live the power of ```each``` operations: you could use functions objects to iterate some collection. It's like the Java 8 Lambdas. 
