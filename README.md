@@ -20,7 +20,7 @@ To use Buzz, you need to use one of these handlers.
 
 ##each()
 
-Each is one of the basic operations of Buzz. You could use it to iterate a collections. See the example below:
+```each``` is the most basic operations of Buzz. You could use it to iterate a collections. See the example below:
 ```java
 List<Integer> numbers = Arrays.asList(0,1,2,3,4,5);
 collection(numbers).each(new Function<Integer>(){
@@ -29,8 +29,8 @@ collection(numbers).each(new Function<Integer>(){
 ```
 It's not a huge difference from ```for```, ```while``` and ```for each``` Java iteration operations, but if you can build some reusable functions to iterate the collection, we could see some better results than the example above. 
 ```java
-Function<Object> print = new Function<Integer>(){
-  public void block(Integer i){ System.out.println(i); }
+Function print = new Function(){
+  public void block(Object i){ System.out.println(i); }
 });
 
 // You could use print function to others collections
@@ -39,3 +39,15 @@ collection(numbers2).each(print);
 ```
 
 That is where live the power of ```each``` operations: you could use functions objects to iterate some collection. It's like the Java 8 Lambdas. 
+
+##filter()
+
+```filter``` is an operation used to get a subcollection of a collection based on a boolean condition. The most basic ```filter``` operation can be made using a ```Conditional``` object like the example below.
+
+```java
+// Filter the list and get a sublist with elements less than 2
+collection(numbers).filter(
+  new Conditional<Integer>(){public boolean block(Integer t) { return t < 2; }}
+).get();	
+```
+
