@@ -92,12 +92,25 @@ Collection<Integer> subList = collection(numbers).filter(equalsTo(2)).get();
 ```java
 Collection<Integer> subList = collection(numbers).filter(notEqualsTo(2)).get();
 ```
-### containsString
+### containsString()
 ```java
 Collection<String> strings = Arrays.asList("Adriano", "Clara", "Tito", "Isauro");
 Collection<String> subList = collection(strings).filter(containsString("Adriano")).get();
 ```
-### matches
+
+### before()
+```java
+Collection<Date> dates = Arrays.asList(...);
+Collection<Date> subList = collection(dates).filter(before(new Date())).get();
+```
+
+### after()
+```java
+Collection<Date> dates = Arrays.asList(...);
+Collection<Date> subList = collection(dates).filter(afterDate())).get();
+```
+
+### matches()
 This matcher is very powerful and can fit a large scope of cases of filtering operations. You use one object to do a query based on its not null properties. See the example below.
 ```java
 public class Person{
@@ -116,8 +129,17 @@ Person person = new Person(null, 18);
 Collection<String> subList = collection(strings).filter(containsString("Adriano")).get();
 ```
 
-### propertyMatches
+### propertyMatches()
 This is other powerful matchers, which allow you to do a conditional on the properties of an object.
 
-You can use it by compares the equality:
+We will begin rewriting the same example listed before with the ```matches``` Matcher.
 ```java
+Collection<String> subList = collection(dataList).filter(propertyMatches("idade", 18)).get();
+```
+You can use another conditional to filter the listed elements by appying a conditional, like this:
+```java
+Collection<String> subList = collection(dataList).filter(propertyMatches("idade", greaterThan(18))).get();
+```
+
+
+
