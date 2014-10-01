@@ -12,9 +12,9 @@ import static com.github.adrianobrito.buzz.Matchers.*;
 
 You have 3 ways of handle a collection on Buzz:
 
-* Basic Collection: Handles the collection as a basic collection that runs on a Single Thread. Use the operation `collection()` to work with yout collection as a basic collection.
-* Synchronized Collection: Handles the collection as a Thread-Safe collection, and locks an element when it is acessed.  Use the operation `syncCollection()` to work with yout collection as a synchronized collection.
-* Asynchronized Collection: Begin a thread to access each element of a list. It's appropriate to use when the access of each element of collection consumes some time. Use the operation `asyncCollection()` to work with yout collection as a synchronized collection.
+* Basic Collection: Handles the collection as a basic collection that runs on a Single Thread. Use the operation `collection()` to work with your collection as a basic collection.
+* Synchronized Collection: Handles the collection as a Thread-Safe collection, and locks an element when it is acessed.  Use the operation `syncCollection()` to work with your collection as a synchronized collection.
+* Asynchronized Collection: Begin a thread to access each element of a list. It's appropriate to use when the access of each element of collection consumes some time. Use the operation `asyncCollection()` to work with your collection as a synchronized collection.
 
 To use Buzz, you need to use one of these handlers. 
 
