@@ -140,6 +140,14 @@ You can use another conditional to filter the listed elements by appying a condi
 ```java
 Collection<String> subList = collection(dataList).filter(propertyMatches("idade", greaterThan(18))).get();
 ```
+##Nested Filtering
+
+You can do nested filters to query data from your sublist. See the example below which lists all persons who has age between 18 and 50:
+```java
+Collection<String> subList = collection(dataList).filter(propertyMatches("idade", greaterThan(18)))
+						 .filter(propertyMatches("idade", lessThan(50))
+						 .get();
+```
 
 ##Download
 
