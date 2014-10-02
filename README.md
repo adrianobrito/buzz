@@ -2,6 +2,34 @@
 
 Buzz is a DSL for that who doesn't can use Java 8 new features for Collections, but wants to have some expressive way to handle Java Collections. The DSL provide intuitive elements for select and query data from any collection. Let's see the main features.
 
+# Build
+The build process in Buzz is supported by Gradle. Gradle is a fast and complete system to organize, build and package binaries.
+
+Let's go. 
+
+## Build to developer
+
+We need generate Eclipse IDE configuration files.
+
+```shellscript
+$ gradle eclipse
+```
+
+After this step, you need import the Buzz DSL project into your workspace, just it.
+
+
+## Build to distribute the binaries files
+
+If you want build the Buzz binaries, you need it:
+
+```shellscript
+$ gradle jar
+```
+
+Gradle will generate the Buzz DSL binary, jar format, in the folder build/libs.
+
+# Using
+
 First of all, you need to put two required imports on your Java File to use Buzz DSL.
 ```java
 import static com.github.adrianobrito.buzz.Buzz.*;
