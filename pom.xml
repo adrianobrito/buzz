@@ -1,0 +1,38 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.apache.maven</groupId>
+  <artifactId>maven</artifactId>
+  <version>2.0</version>
+  <packaging>jar</packaging>
+
+  <name>Maven core</name>
+  <description>The maven main core project description</description>
+  <url>http://maven.apache.org</url>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>http://svn.apache.org/viewcvs.cgi/maven</url>
+  </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>...</groupId>
+      <artifactId>...</artifactId>
+      <version>...</version>
+    </dependency>
+    ...
+  </dependencies>
+
+  <!--
+  NOT ALLOWED: (see FAQ)
+  <repositories></repositories>
+  <pluginRepositories></pluginRepositories>
+  -->
+</project>
