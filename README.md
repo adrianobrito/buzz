@@ -1,4 +1,5 @@
 # Buzz DSL
+![Buzz](logo.png)
 
 Buzz is a DSL for that who doesn't can use Java 8 new features for Collections, but wants to have some expressive way to handle Java Collections. The DSL provide intuitive elements for select and query data from any collection. Let's see the main features.
 
