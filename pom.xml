@@ -1,38 +1,61 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.maven</groupId>
-  <artifactId>maven</artifactId>
-  <version>2.0</version>
+  <groupId>com.github.adrianobrito</groupId>
+  <artifactId>buzz</artifactId>
+  <version>0.0.1</version>
   <packaging>jar</packaging>
 
-  <name>Maven core</name>
+  <name>Buzz DSL</name>
   <description>The maven main core project description</description>
   <url>http://maven.apache.org</url>
 
   <licenses>
-    <license>
-      <name>Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
+		<license>
+			<comments>
+				Also, the author promises to never sue IBM for any use of this file.
+			</comments>
+			<name>LGPL 2.1</name>
+			<url>http://www.gnu.org/licenses/lgpl-2.1.html</url>
+		</license>
   </licenses>
 
   <scm>
     <url>http://svn.apache.org/viewcvs.cgi/maven</url>
   </scm>
 
+  <url>
+		http://github.com/adrianobrito/buzz
+  </url>
+
+	<developers>
+		<developer>
+			<id>adrianobrito</id>
+			<name>Adriano Brito</name>
+			<email>adrianosdebrito@gmail.com</email>
+			<timezone>GMT+3</timezone>
+			<roles></roles>
+		</developer>
+	</developers>
+	<scm>
+		<connection>
+			http://github.com/adrianobrito/buzz
+		</connection>
+		<developerConnection>
+			http://github.com/adrianobrito/buzz
+		</developerConnection>
+		<url>
+			http://github.com/adrianobrito/buzz
+		</url>
+	</scm>
+  
   <dependencies>
-    <dependency>
-      <groupId>...</groupId>
-      <artifactId>...</artifactId>
-      <version>...</version>
-    </dependency>
-    ...
+  	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.12</version>
+		<scope>test</scope>
+	</dependency>
   </dependencies>
 
-  <!--
-  NOT ALLOWED: (see FAQ)
-  <repositories></repositories>
-  <pluginRepositories></pluginRepositories>
-  -->
+  
 </project>

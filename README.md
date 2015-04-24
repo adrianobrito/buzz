@@ -177,6 +177,27 @@ Collection<String> subList = collection(dataList).filter(propertyMatches("idade"
 						 .get();
 ```
 
-##Download
+## Extend with your custom matcher
+You can extend Buzz by inherit the ```Matcher``` class and adding your custom matchers methods. The methods should return a ```Conditional``` object. When you do it, you have to add an ```import static``` to your Custom Matcher like that:
 
-You can download the Beta Release [here](https://github.com/adrianobrito/buzz/buzz.jar).
+```java
+import static org.myproject.CustomMatchers.*;
+```
+
+##Add to your Project
+
+###Maven
+```xml
+<dependency>
+	<groupId>com.github.adrianobrito</groupId>
+	<artifactId>buzz</artifactId>
+	<version>0.0.1</version>
+</dependency>		
+```
+
+###Gradle
+```groovy
+dependencies {
+    group: 'com.github.adrianobrito', name: 'buzz', version: '0.0.1'
+}		
+```

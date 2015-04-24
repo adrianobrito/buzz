@@ -37,6 +37,5 @@ public class BasicCollectionOperations<T> implements CollectionOperations<T>{
 		this.collection = collection;
 		return this;
 	}
-	
 
 }

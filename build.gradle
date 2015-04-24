@@ -9,13 +9,17 @@
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+sourceCompatibility = 1.7
+version = '0.0.1'
+group = "com.github.adrianobrito"
+archivesBaseName = "buzz"
 
 repositories {
     mavenCentral()
 }
-
-sourceCompatibility = 1.7
-version = '0.0.1'
 
 jar {
 	baseName = 'buzz'
@@ -25,7 +29,69 @@ jar {
     }
 }
 
-
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+        authentication(userName: ossrhUsername, password: ossrhPassword)
+      }
+
+      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+        authentication(userName: ossrhUsername, password: ossrhPassword)
+      }
+
+      pom.project {
+        name 'Buzz API'
+        packaging 'jar'
+        // optionally artifactId can be defined here 
+        description 'A Java DSL to manipulate collections.'
+        url 'https://github.com/adrianobrito/buzz'
+
+        scm {
+          connection 'git://github.com/adrianobrito/buzz'
+          developerConnection 'git://github.com/adrianobrito/buzz'
+          url 'https://github.com/adrianobrito/buzz'
+        }
+
+        licenses {
+          license {
+            name 'The Apache License, Version 2.0'
+            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+          }
+        }
+
+        developers {
+          developer {
+            id 'adrianobrito'
+            name 'Adriano Brito'
+            email 'adrianosdebrito@gmail.com'
+          }
+        }
+      }
+    }
+  }
 }

@@ -3,7 +3,7 @@ package com.github.adrianobrito.buzz.operations;
 import static com.github.adrianobrito.buzz.Buzz.asyncCollection;
 import static com.github.adrianobrito.buzz.Buzz.collection;
 import static com.github.adrianobrito.buzz.Buzz.syncCollection;
-import static com.github.adrianobrito.buzz.Matchers.*;
+import static com.github.adrianobrito.buzz.Matchers.greaterThan;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,7 +22,7 @@ public class BenchmarkTest {
 		
 		Long asyncTime = test(new Runnable() {
 			
-			@SuppressWarnings("unchecked")
+			@SuppressWarnings({ "unchecked", "rawtypes" })
 			@Override
 			public void run() {
 				asyncCollection(numbers).each(new Function(){ public void block(Object i){ stop(10); }});				

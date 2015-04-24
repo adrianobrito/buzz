@@ -1,15 +1,23 @@
 package com.github.adrianobrito.buzz.operations;
 
 import static com.github.adrianobrito.buzz.Buzz.collection;
-import static com.github.adrianobrito.buzz.Buzz.syncCollection;
-import static com.github.adrianobrito.buzz.Matchers.*;
+import static com.github.adrianobrito.buzz.Matchers.after;
+import static com.github.adrianobrito.buzz.Matchers.before;
+import static com.github.adrianobrito.buzz.Matchers.containsString;
+import static com.github.adrianobrito.buzz.Matchers.equalsTo;
+import static com.github.adrianobrito.buzz.Matchers.greaterEqualsThan;
+import static com.github.adrianobrito.buzz.Matchers.greaterThan;
+import static com.github.adrianobrito.buzz.Matchers.lessEqualsThan;
+import static com.github.adrianobrito.buzz.Matchers.lessThan;
+import static com.github.adrianobrito.buzz.Matchers.matches;
+import static com.github.adrianobrito.buzz.Matchers.notEqualsTo;
+import static com.github.adrianobrito.buzz.Matchers.propertyMatches;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
