@@ -12,7 +12,7 @@ import java.util.List;
 import com.github.adrianobrito.buzz.operations.CollectionOperations.Conditional;
 import com.github.adrianobrito.buzz.operations.CollectionOperations.Function;
 
-public class Test {
+public class BenchmarkTest {
 	
 	public static void main(String[] args) {
 		

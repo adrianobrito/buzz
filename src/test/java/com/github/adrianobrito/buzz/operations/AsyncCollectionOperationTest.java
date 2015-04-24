@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import com.github.adrianobrito.buzz.operations.CollectionOperations.Function;
 
-public class AsyncCollectionOperationTest {
+public class AsyncCollectionOperationTest { 
 	
 	private final static Integer MAX_LENGTH = 100;
 	private final List<Integer> numbers = new ArrayList<Integer>();
