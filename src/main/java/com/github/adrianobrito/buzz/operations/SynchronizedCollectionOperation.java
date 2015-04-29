@@ -41,5 +41,10 @@ public class SynchronizedCollectionOperation<T> implements CollectionOperations<
 		this.collection = collection;
 		return this;
 	}
-	
+
+    @Override
+    public CollectionOperations<T> where(String bql) {
+        return null;
+    }
+    
 }

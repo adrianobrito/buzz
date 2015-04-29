@@ -62,5 +62,9 @@ private Collection<T> collection;
 		
 		return this;
 	}
-	
+
+    @Override
+    public CollectionOperations<T> where(String bql) {
+        return null;
+    }
 }

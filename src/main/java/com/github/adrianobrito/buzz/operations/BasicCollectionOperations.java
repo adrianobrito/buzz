@@ -38,4 +38,9 @@ public class BasicCollectionOperations<T> implements CollectionOperations<T>{
 		return this;
 	}
 
+    @Override
+    public CollectionOperations<T> where(String bql) {
+        return null;
+    }
+
 }
