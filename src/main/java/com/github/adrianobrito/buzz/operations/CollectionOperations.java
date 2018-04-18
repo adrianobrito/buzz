@@ -2,7 +2,7 @@ package com.github.adrianobrito.buzz.operations;
 
 import java.util.Collection;
 
-public interface CollectionOperations<T> {
+public interface CollectionOperations<T> extends BQLOperations<T>{
 	
 	Collection<T> get();
 	CollectionOperations<T> each(Function<? super T> f);
